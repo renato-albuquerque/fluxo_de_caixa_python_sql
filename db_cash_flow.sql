@@ -21,8 +21,7 @@ select * from staging.st_saldo;
 
 -- Transformações
 
--- Transformação tabela st_movimentos (Staging).
-
+-- Tabelas "st_bancos" e "st_contas" (Staging), não houve transformações.
 
 -- Transformação tabela st_movimentos (Staging).
 -- Coluna Tipo: Entradas = E, Saídas = S.
@@ -43,5 +42,9 @@ USING ROUND("Valor"::numeric, 2);
 
 select * from staging.st_movimentos;
 
+-- Transformação tabela st_saldo (Staging).
+ALTER TABLE staging.st_saldo
+ALTER COLUMN "Valor" TYPE numeric(15,2)
+USING ROUND("Valor"::numeric, 2);
 
-
+select * from staging.st_saldo;
