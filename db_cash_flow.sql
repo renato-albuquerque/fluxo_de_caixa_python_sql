@@ -48,3 +48,55 @@ ALTER COLUMN "Valor" TYPE numeric(15,2)
 USING ROUND("Valor"::numeric, 2);
 
 select * from staging.st_saldo;
+
+-- Criar schema dw (Data warehouse).
+create schema dw;
+
+-- Tabelas dimensão x fato a serem criadas:
+-- dim_bancos, dim_contas, dim_calendario, f_movimentos, f_saldo
+
+-- Criar tabela dimensão dim_bancos.
+create table dw.dim_bancos as table staging.st_bancos;
+
+select * from dw.dim_bancos;
+
+-- Criar tabela dimensão dim_contas.
+create table dw.dim_contas as table staging.st_contas;
+
+select * from dw.dim_contas;
+
+-- Criar tabela dimensão dim_calendario.
+create table dw.dim_calendario (
+    id_tempo SERIAL PRIMARY KEY,
+    data DATE,
+    ano INT,
+    mes INT,
+    dia INT,
+    nome_dia_semana VARCHAR(20),
+    nome_mes VARCHAR(20),
+    trimestre INT,
+    bimestre INT,
+    semestre INT
+);
+
+-- Inserir dados na tabela dim_calendario
+INSERT INTO dw.dim_calendario (data, ano, mes, dia, nome_dia_semana, nome_mes, trimestre, bimestre, semestre)
+SELECT 
+    dt AS data,
+    EXTRACT(YEAR FROM dt) AS ano,
+    EXTRACT(MONTH FROM dt) AS mes,
+    EXTRACT(DAY FROM dt) AS dia,
+    TO_CHAR(dt, 'Day') AS nome_dia_semana,  -- Nome do dia da semana (Ex: Segunda, Terça)
+    TO_CHAR(dt, 'Month') AS nome_mes,        -- Nome do mês (Ex: Janeiro, Fevereiro)
+    EXTRACT(QUARTER FROM dt) AS trimestre,   -- Trimestre (1, 2, 3, 4)
+    (EXTRACT(MONTH FROM dt) + 1) / 2 AS bimestre, -- Bimestre (1, 2, 3, 4, 5, 6)
+    CASE 
+        WHEN EXTRACT(MONTH FROM dt) <= 6 THEN 1
+        ELSE 2
+    END AS semestre                          -- Semestre (1 ou 2)
+FROM
+    generate_series('2023-01-02'::DATE, '2024-05-10'::DATE, '1 day'::INTERVAL) AS dt;
+
+select * from dw.dim_calendario;
+
+-- Criar tabela fato f_saldo.
