@@ -42,6 +42,13 @@ USING ROUND("Valor"::numeric, 2);
 
 select * from staging.st_movimentos;
 
+-- Coluna Data, transformar para data abreviada.
+ALTER TABLE staging.st_movimentos
+ALTER COLUMN "Data" TYPE date
+USING "Data"::date;
+
+select * from staging.st_movimentos;
+
 -- Transformação tabela st_saldo (Staging).
 ALTER TABLE staging.st_saldo
 ALTER COLUMN "Valor" TYPE numeric(15,2)
@@ -100,3 +107,8 @@ FROM
 select * from dw.dim_calendario;
 
 -- Criar tabela fato f_saldo.
+create table dw.f_saldo as table staging.st_saldo;
+
+select * from dw.f_saldo;
+
+-- Criar tabela fato f_movimentos
