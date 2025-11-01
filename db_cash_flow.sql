@@ -142,4 +142,4 @@ REFERENCES dw.dim_bancos("Banco_ID");
 select * from dw.f_saldo;
 
 -- Criar tabela fato f_movimentos
-select * from dw.dim_contas;
+select * from staging.st_movimentos;
