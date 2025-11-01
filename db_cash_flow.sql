@@ -65,10 +65,18 @@ create schema dw;
 -- Criar tabela dimensão dim_bancos.
 create table dw.dim_bancos as table staging.st_bancos;
 
+-- Definir coluna Banco_ID como primary key.
+ALTER TABLE dw.dim_bancos
+ADD CONSTRAINT pk_dim_bancos PRIMARY KEY ("Banco_ID");
+
 select * from dw.dim_bancos;
 
 -- Criar tabela dimensão dim_contas.
 create table dw.dim_contas as table staging.st_contas;
+
+-- Definir coluna Conta_ID como primary key.
+ALTER TABLE dw.dim_contas
+ADD CONSTRAINT pk_dim_contas PRIMARY KEY ("Conta_ID");
 
 select * from dw.dim_contas;
 
@@ -109,6 +117,29 @@ select * from dw.dim_calendario;
 -- Criar tabela fato f_saldo.
 create table dw.f_saldo as table staging.st_saldo;
 
+-- Inserir coluna saldo_id (PK).
+alter table dw.f_saldo
+add column saldo_id BIGSERIAL PRIMARY KEY;
+
+-- Renomear nome coluna saldo_id.
+ALTER TABLE dw.f_saldo
+RENAME COLUMN "Saldo_id" TO "Saldo_ID";
+
+-- Definir coluna Banco_ID como foreign key.
+ALTER TABLE dw.f_saldo
+ADD CONSTRAINT fk_f_saldo_dim_bancos
+FOREIGN KEY ("Banco_ID")
+REFERENCES dw.dim_bancos ("Banco_ID");
+
+ALTER TABLE dw.f_saldo
+DROP CONSTRAINT IF EXISTS fk_f_saldo_dim_bancos;
+
+ALTER TABLE dw.f_saldo
+ADD CONSTRAINT fk_f_saldo_dim_bancos
+FOREIGN KEY ("Banco_ID")
+REFERENCES dw.dim_bancos("Banco_ID");
+
 select * from dw.f_saldo;
 
 -- Criar tabela fato f_movimentos
+select * from dw.dim_contas;
