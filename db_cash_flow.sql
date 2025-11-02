@@ -142,4 +142,37 @@ REFERENCES dw.dim_bancos("Banco_ID");
 select * from dw.f_saldo;
 
 -- Criar tabela fato f_movimentos
-select * from staging.st_movimentos;
+create table dw.f_movimentos (
+	"Movimentos_ID" SERIAL NOT NULL PRIMARY KEY,
+	"Banco_ID" BIGINT REFERENCES dw.dim_bancos ("Banco_ID"),
+	"Conta_ID" BIGINT REFERENCES dw.dim_contas ("Conta_ID"),
+	"Saldo_ID" BIGINT REFERENCES dw.f_saldo ("Saldo_ID"),
+	id_tempo INTEGER REFERENCES dw.dim_calendario(id_tempo),
+	"Tipo" TEXT,
+	"Valor" NUMERIC
+);
+
+insert into dw.f_movimentos(
+	"Movimentos_ID",
+	"Banco_ID",
+	"Conta_ID",
+	"Saldo_ID",
+	id_tempo,
+	"Tipo",
+	"Valor"
+) 
+select 
+	"Movimentos_ID",
+	"Banco_ID",
+	"Conta_ID",
+	"Saldo_ID",
+	id_tempo as "Tempo_ID",
+	"Tipo",
+	"Valor"
+from staging.st_movimentos m
+left join staging.st_bancos b on m."Banco_ID" = b."Banco_ID" 
+
+
+
+select * from dw.f_movimentos;
+
