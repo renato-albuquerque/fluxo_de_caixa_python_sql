@@ -187,3 +187,5 @@ left join dw.f_saldo s on mt."Banco_ID" = s."Banco_ID"
 left join dw.dim_calendario dcal on mt."Data" = dcal.data; 
 
 select * from dw.f_movimentos;
+
+-- End.
