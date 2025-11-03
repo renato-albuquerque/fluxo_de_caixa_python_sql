@@ -49,6 +49,21 @@ USING "Data"::date;
 
 select * from staging.st_movimentos;
 
+-- Inserindo colunas Banco_ID e Conta_ID. 
+-- Excluindo colunas Banco e Conta.
+create table staging.st_movimentos_transf as 
+select
+	b."Banco_ID",
+	c."Conta_ID",
+	m."Tipo",
+	m."Data",
+	m."Valor"
+from staging.st_movimentos m
+left join staging.st_bancos b on m."Banco" = b."Banco"
+left join staging.st_contas c on m."Conta" = c."Conta";
+
+select * from staging.st_movimentos_transf;
+
 -- Transformação tabela st_saldo (Staging).
 ALTER TABLE staging.st_saldo
 ALTER COLUMN "Valor" TYPE numeric(15,2)
@@ -153,7 +168,6 @@ create table dw.f_movimentos (
 );
 
 insert into dw.f_movimentos(
-	"Movimentos_ID",
 	"Banco_ID",
 	"Conta_ID",
 	"Saldo_ID",
@@ -162,17 +176,14 @@ insert into dw.f_movimentos(
 	"Valor"
 ) 
 select 
-	"Movimentos_ID",
-	"Banco_ID",
-	"Conta_ID",
-	"Saldo_ID",
-	id_tempo as "Tempo_ID",
-	"Tipo",
-	"Valor"
-from staging.st_movimentos m
-left join staging.st_bancos b on m."Banco_ID" = b."Banco_ID" 
-
-
+	mt."Banco_ID",
+	mt."Conta_ID",
+	s."Saldo_ID",
+	dcal.id_tempo as "Tempo_ID",
+	mt."Tipo",
+	mt."Valor"
+from staging.st_movimentos_transf mt
+left join dw.f_saldo s on mt."Banco_ID" = s."Banco_ID"
+left join dw.dim_calendario dcal on mt."Data" = dcal.data; 
 
 select * from dw.f_movimentos;
-
