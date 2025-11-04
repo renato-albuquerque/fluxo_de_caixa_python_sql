@@ -188,4 +188,11 @@ left join dw.dim_calendario dcal on mt."Data" = dcal.data;
 
 select * from dw.f_movimentos;
 
+-- Resumo tabelas dw a serem carregadas no Power Bi:
+select * from dw.dim_bancos;
+select * from dw.dim_contas;
+select * from dw.dim_calendario;
+select * from dw.f_saldo;
+select * from dw.f_movimentos;
+
 -- End.
