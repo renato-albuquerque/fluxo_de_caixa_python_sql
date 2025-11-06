@@ -7,7 +7,7 @@ Este documento detalha a evolução da arquitetura do projeto de Demonstração 
 
 [Clique aqui para ver Projeto original no GitHub, versão 1.0.](https://github.com/renato-albuquerque/projeto_fluxo_de_caixa_evolve)
 
-## 2. Arquitetura do Projeto
+## 📝 2. Arquitetura do Projeto
 
 ### 2.1. Arquitetura do Projeto | Versão 1.0
 Esta arquitetura se refere a primeira solução desenvolvida para o projeto de **Demonstração de Fluxo de Caixa**. 
