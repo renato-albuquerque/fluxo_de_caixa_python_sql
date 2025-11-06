@@ -42,6 +42,28 @@ USING ROUND("Valor"::numeric, 2);
 
 select * from staging.st_movimentos;
 
+-- Coluna Data, transformar para data abreviada.
+ALTER TABLE staging.st_movimentos
+ALTER COLUMN "Data" TYPE date
+USING "Data"::date;
+
+select * from staging.st_movimentos;
+
+-- Inserindo colunas Banco_ID e Conta_ID. 
+-- Excluindo colunas Banco e Conta.
+create table staging.st_movimentos_transf as 
+select
+	b."Banco_ID",
+	c."Conta_ID",
+	m."Tipo",
+	m."Data",
+	m."Valor"
+from staging.st_movimentos m
+left join staging.st_bancos b on m."Banco" = b."Banco"
+left join staging.st_contas c on m."Conta" = c."Conta";
+
+select * from staging.st_movimentos_transf;
+
 -- Transformação tabela st_saldo (Staging).
 ALTER TABLE staging.st_saldo
 ALTER COLUMN "Valor" TYPE numeric(15,2)
@@ -58,10 +80,18 @@ create schema dw;
 -- Criar tabela dimensão dim_bancos.
 create table dw.dim_bancos as table staging.st_bancos;
 
+-- Definir coluna Banco_ID como primary key.
+ALTER TABLE dw.dim_bancos
+ADD CONSTRAINT pk_dim_bancos PRIMARY KEY ("Banco_ID");
+
 select * from dw.dim_bancos;
 
 -- Criar tabela dimensão dim_contas.
 create table dw.dim_contas as table staging.st_contas;
+
+-- Definir coluna Conta_ID como primary key.
+ALTER TABLE dw.dim_contas
+ADD CONSTRAINT pk_dim_contas PRIMARY KEY ("Conta_ID");
 
 select * from dw.dim_contas;
 
@@ -100,3 +130,69 @@ FROM
 select * from dw.dim_calendario;
 
 -- Criar tabela fato f_saldo.
+create table dw.f_saldo as table staging.st_saldo;
+
+-- Inserir coluna saldo_id (PK).
+alter table dw.f_saldo
+add column saldo_id BIGSERIAL PRIMARY KEY;
+
+-- Renomear nome coluna saldo_id.
+ALTER TABLE dw.f_saldo
+RENAME COLUMN "Saldo_id" TO "Saldo_ID";
+
+-- Definir coluna Banco_ID como foreign key.
+ALTER TABLE dw.f_saldo
+ADD CONSTRAINT fk_f_saldo_dim_bancos
+FOREIGN KEY ("Banco_ID")
+REFERENCES dw.dim_bancos ("Banco_ID");
+
+ALTER TABLE dw.f_saldo
+DROP CONSTRAINT IF EXISTS fk_f_saldo_dim_bancos;
+
+ALTER TABLE dw.f_saldo
+ADD CONSTRAINT fk_f_saldo_dim_bancos
+FOREIGN KEY ("Banco_ID")
+REFERENCES dw.dim_bancos("Banco_ID");
+
+select * from dw.f_saldo;
+
+-- Criar tabela fato f_movimentos
+create table dw.f_movimentos (
+	"Movimentos_ID" SERIAL NOT NULL PRIMARY KEY,
+	"Banco_ID" BIGINT REFERENCES dw.dim_bancos ("Banco_ID"),
+	"Conta_ID" BIGINT REFERENCES dw.dim_contas ("Conta_ID"),
+	"Saldo_ID" BIGINT REFERENCES dw.f_saldo ("Saldo_ID"),
+	id_tempo INTEGER REFERENCES dw.dim_calendario(id_tempo),
+	"Tipo" TEXT,
+	"Valor" NUMERIC
+);
+
+insert into dw.f_movimentos(
+	"Banco_ID",
+	"Conta_ID",
+	"Saldo_ID",
+	id_tempo,
+	"Tipo",
+	"Valor"
+) 
+select 
+	mt."Banco_ID",
+	mt."Conta_ID",
+	s."Saldo_ID",
+	dcal.id_tempo as "Tempo_ID",
+	mt."Tipo",
+	mt."Valor"
+from staging.st_movimentos_transf mt
+left join dw.f_saldo s on mt."Banco_ID" = s."Banco_ID"
+left join dw.dim_calendario dcal on mt."Data" = dcal.data; 
+
+select * from dw.f_movimentos;
+
+-- Resumo tabelas dw a serem carregadas no Power Bi:
+select * from dw.dim_bancos;
+select * from dw.dim_contas;
+select * from dw.dim_calendario;
+select * from dw.f_saldo;
+select * from dw.f_movimentos;
+
+-- End.

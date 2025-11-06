@@ -66,4 +66,7 @@ Em resumo, a versão 2.0 transformou o projeto de uma análise simples em uma so
 - `PostgreSQL (pgAdmin4)`: Sistema de gerenciamento de banco de dados relacional (SGBD) utilizado para persistir e modelar os dados nas camadas Raw, Staging e Data Warehouse (DW).
 - `Power BI`: Visualização dos dados e geração de insights para o negócio.
 
-## Desenvolvimento
+## 6. Desenvolvimento
+
+### 6.1. Etapas de Ingestão dos dados no Python até Carga dos dataframes no PostgreSQL
+[Passo a passo descrito no arquivo main.ipynb.](jupyter/main.ipynb).
