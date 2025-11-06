@@ -10,14 +10,14 @@ Este documento detalha a evolução da arquitetura do projeto de Demonstração 
 ## Arquitetura do Projeto
 
 ### Arquitetura do Projeto | Versão 1.0
+Esta arquitetura se refere a primeira solução desenvolvida para o projeto de **Demonstração de Fluxo de Caixa**. 
 ![arquitetura_projeto_versao_1.0](images/arquitetura_projeto_1.0.PNG)
 
 ### Arquitetura do Projeto | Versão 2.0
+Esta arquitetura é uma evolução da solução de BI para este projeto, com finalidade de aumentar a confiabilidade, a escalabilidade e a performance desta solução de BI.
 ![arquitetura_projeto_versao_1.0](images/arquitetura_projeto_2.0.PNG)
 
 ## 🎯 Da Versão 1.0 à Versão 2.0 (Comparativo entre Arquiteturas)
-A transição de arquitetura visa aumentar a confiabilidade, a escalabilidade e a performance desta solução de BI. <br>
-
 | Característica | Projeto 1.0 (Inicial) | Projeto 2.0 (Otimizado) |
 | :--- | :--- | :--- |
 | **Arquitetura** | Power BI como ETL (Power Query) | Pipeline Python + PostgreSQL DW |
