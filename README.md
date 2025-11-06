@@ -70,14 +70,17 @@ Em resumo, a versão 2.0 transformou o projeto de uma análise simples em uma so
 
 ### 6.1. Etapas de Ingestão dos dados no Python até Carga dos dataframes no PostgreSQL
 [Passo a passo descrito no arquivo main.ipynb.](jupyter/main.ipynb).
+<br>
 
 ### 6.2. Etapas de criação do banco de dados no PostgreSQL até desenvolvimento das tabelas do Data Warehouse 
 
 #### 6.2.1. Criação do banco de dados no PostgreSQL
 O banco de dados foi nomeado de: `db_cash_flow`.
+<br>
 
 #### 6.2.2. Etapas de transformação e carga dos dados no PostgreSQL
 [Passo a passo descrito no arquivo db_cash_flow.](sql/db_cash_flow.sql).
+<br>
 
 #### 6.2.3. Modelagem de dados do Data Warehouse
 ![modelagem_dados_dw](images/dw_star_schema.PNG) <br>
@@ -104,6 +107,12 @@ O principal objetivo deste modelo é fornecer uma estrutura dimensionalmente cor
 
 4. Clareza e Manutenibilidade:
 - O modelo é intuitivo e fácil de entender. As tabelas de Dimensão filtram as tabelas de Fato. A lógica de negócio é clara para futuros desenvolvedores ou para o próprio usuário na navegação dos dados.
+
+### 6.3. Desenvolvimento dos Dashboards (Dataviz)
+![Página DFC](images/dashboard_pagina_dfc.PNG)
+<br>
+
+![Página Matriz](images/dashboard_pagina_matriz.PNG)
 
 
 
