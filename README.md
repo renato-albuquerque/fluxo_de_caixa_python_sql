@@ -7,7 +7,15 @@ Este documento detalha a evolução da arquitetura do projeto de Demonstração 
 
 [Clique aqui para ver Projeto original no GitHub, versão 1.0.](https://github.com/renato-albuquerque/projeto_fluxo_de_caixa_evolve)
 
-## 🎯 Da Versão 1.0 à Versão 2.0 (Arquitetura Otimizada)
+## Arquitetura do Projeto
+
+### Arquitetura do Projeto | Versão 1.0
+![arquitetura_projeto_versao_1.0](images/arquitetura_projeto_1.0.PNG)
+
+### Arquitetura do Projeto | Versão 2.0
+![arquitetura_projeto_versao_1.0](images/arquitetura_projeto_2.0.PNG)
+
+## 🎯 Da Versão 1.0 à Versão 2.0 (Comparativo entre Arquiteturas)
 A transição de arquitetura visa aumentar a confiabilidade, a escalabilidade e a performance desta solução de BI. <br>
 
 | Característica | Projeto 1.0 (Inicial) | Projeto 2.0 (Otimizado) |
