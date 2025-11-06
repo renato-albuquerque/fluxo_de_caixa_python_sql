@@ -70,3 +70,45 @@ Em resumo, a versão 2.0 transformou o projeto de uma análise simples em uma so
 
 ### 6.1. Etapas de Ingestão dos dados no Python até Carga dos dataframes no PostgreSQL
 [Passo a passo descrito no arquivo main.ipynb.](jupyter/main.ipynb).
+
+### 6.2. Etapas de criação do banco de dados no PostgreSQL até desenvolvimento das tabelas do Data Warehouse 
+
+#### 6.2.1. Criação do banco de dados no PostgreSQL
+O banco de dados foi nomeado de: `db_cash_flow`.
+
+#### 6.2.2. Etapas de transformação e carga dos dados no PostgreSQL
+[Passo a passo descrito no arquivo db_cash_flow.](sql/db_cash_flow.sql).
+
+#### 6.2.3. Modelagem de dados do Data Warehouse
+![modelagem_dados_dw](images/dw_star_schema.PNG) <br>
+
+##### 🌟 Modelo de Dados: Esquema Estrela Otimizado para o projeto DFC
+
+##### 🎯 Objetivo do Modelo
+O principal objetivo deste modelo é fornecer uma estrutura dimensionalmente correta para a análise da Demonstração de Fluxo de Caixa (DFC), permitindo que os usuários no Power BI:
+- Calculem Saldo Final e Movimentações de forma precisa.
+- Analisem o Fluxo de Caixa por diversas dimensões: Tempo (Ano, Mês, Dia), Conta (Grupo/Subgrupo) e Banco.
+- Gerem Relatórios de Saldo Inicial/Final de maneira eficiente, separando os fatos de movimentação e saldo.
+
+##### ✨ Benefícios Chave Desta Modelagem (Esquema Estrela)
+1. Performance (Consultas Rápidas):
+- As tabelas de Dimensão (dw dim_calendario, dw dim_contas, dw dim_bancos) são pequenas e se conectam diretamente às tabelas de Fato (dw f_movimentos, dw f_saldo).
+- Isso permite consultas ágeis aos usuários.
+
+2. Consistência Analítica:
+- Fonte Única da Verdade: As definições de Banco, Conta e Tempo são centralizadas nas dimensões, garantindo que a segmentação e os filtros sejam aplicados de forma consistente em todo o relatório.
+
+3. Flexibilidade (Análise Multifacetada):
+- A separação em dw f_movimentos e dw f_saldo é uma ótima prática. Permite analisar as transações diárias (movimentos) e os saldos em momentos específicos (como Saldo Inicial/Final) de forma separada e otimizada.
+- O modelo está pronto para ser cortado e fatiado por qualquer combinação de Mês/Ano, Conta (Subgrupo) e Banco.
+
+4. Clareza e Manutenibilidade:
+- O modelo é intuitivo e fácil de entender. As tabelas de Dimensão filtram as tabelas de Fato. A lógica de negócio é clara para futuros desenvolvedores ou para o próprio usuário na navegação dos dados.
+
+
+
+
+
+
+
+
