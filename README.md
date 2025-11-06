@@ -1,14 +1,15 @@
 # Projeto Demonstração de Fluxo de Caixa (DFC)
 
-## Sumário
+## 📌 Sumário
 1. Evolução da Arquitetura do Projeto: ETL com Python & PostgreSQL | Dataviz com Power BI 
 2. Arquitetura do Projeto
     * 2.1. Arquitetura do Projeto | Versão 1.0
     * 2.2. Arquitetura do Projeto | Versão 2.0
 3. Da Versão 1.0 à Versão 2.0 (Comparativo entre Arquiteturas)
 4. Benefícios da Nova Arquitetura (Projeto 2.0)
-5. Desenvolvimento
-6. Conclusão
+5. Tecnologias/Ferramentas Utilizadas
+6. Desenvolvimento
+7. Conclusão
 
 ## 🚀 1. Evolução da Arquitetura do Projeto: ETL com Python & PostgreSQL | Dataviz com Power BI
 Este documento detalha a evolução da arquitetura do projeto de Demonstração de Fluxo de Caixa (DFC), que migrou de uma abordagem de ETL (Extract, Transform, Load) simples e atrelada ao Power BI para uma solução robusta baseada em um Data Warehouse (DW) com Python e PostgreSQL. <br>
@@ -53,3 +54,16 @@ A introdução do Python e do PostgreSQL, estruturados em um *Data Warehouse* (D
 * **Fonte Única da Verdade:** O PostgreSQL se torna o repositório centralizado e oficial das métricas de Fluxo de Caixa, assegurando que todos os cálculos e relatórios (incluindo o Power BI) utilizem definições consistentes. <br>
 
 Em resumo, a versão 2.0 transformou o projeto de uma análise simples em uma solução de dados robusta, garantindo que as decisões financeiras sejam baseadas em dados de **alta qualidade, performance e governança**.
+
+## 5. Tecnologias/Ferramentas Utilizadas
+- `Git & GitHub`: Controle de versionamento durante o desenvolvimento do projeto, em ambiente local ou em nuvem.
+- `Visual Studio Code`: Ambiente de desenvolvimento integrado. Software para execução do projeto (IDE: Integrated Development Environment).
+- `Python`: Linguagem de programação utilizada para construir o pipeline de ETL (Extração, Transformação e Carga) dos dados.
+- `Pandas`: Biblioteca essencial do Python para manipulação, limpeza e exploração eficiente dos dados de Fluxo de Caixa.
+- `dotenv`: Biblioteca para gerenciar variáveis de ambiente, utilizada para armazenar chaves de acesso e credenciais de conexão ao banco de dados (PostgreSQL) de forma segura.
+- `SQL Alchemy`: Toolkit ORM (Object-Relational Mapping) e de abstração de banco de dados, usado no Python para facilitar a construção de queries e a comunicação com o PostgreSQL.
+- `psycopg2`: Adaptador de banco de dados PostgreSQL para Python. É o driver que permite ao Python se conectar nativamente e executar comandos no PostgreSQL.
+- `PostgreSQL (pgAdmin4)`: Sistema de gerenciamento de banco de dados relacional (SGBD) utilizado para persistir e modelar os dados nas camadas Raw, Staging e Data Warehouse (DW).
+- `Power BI`: Visualização dos dados e geração de insights para o negócio.
+
+## Desenvolvimento
