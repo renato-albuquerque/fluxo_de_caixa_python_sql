@@ -114,6 +114,17 @@ O principal objetivo deste modelo é fornecer uma estrutura dimensionalmente cor
 
 ![Página Matriz](images/dashboard_pagina_matriz.PNG)
 
+## 7. Conclusão
+A evolução para a Arquitetura 2.0 mostrou uma transformação na capacidade analítica do projeto de Demonstração de Fluxo de Caixa (DFC). <br>
+
+Ao migrar o processo de ETL para um pipeline dedicado em Python e centralizar o armazenamento em um PostgreSQL com Data Warehouse, o projeto alcançou seus objetivos primários:
+- Elevada Governança de Dados: Garantindo que os dados utilizados para a análise de Fluxo de Caixa sejam limpos, consistentes e auditáveis em todas as etapas (Raw, Staging, DW).
+- Performance Otimizada: O modelo de dados em Esquema Estrela permitiu que o Power BI focasse na visualização de insights, resultando em dashboards mais rápidos e responsivos.
+- Escalabilidade Comprovada: A solução está pronta para absorver um volume crescente de dados sem comprometer a integridade ou a velocidade do relatório.
+<br>
+
+Este projeto demonstra a aplicação prática de conceitos modernos de engenharia de dados, convertendo dados brutos em uma Fonte Única da Verdade acionável e robusta para a tomada de decisões financeiras.
+
 
 
 
