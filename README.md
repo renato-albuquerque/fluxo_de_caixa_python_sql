@@ -1,5 +1,15 @@
 # Projeto Demonstração de Fluxo de Caixa (DFC)
 
+## Sumário
+1. Evolução da Arquitetura do Projeto: ETL com Python & PostgreSQL | Dataviz com Power BI 
+2. Arquitetura do Projeto
+    * 2.1. Arquitetura do Projeto | Versão 1.0
+    * 2.2. Arquitetura do Projeto | Versão 2.0
+3. Da Versão 1.0 à Versão 2.0 (Comparativo entre Arquiteturas)
+4. Benefícios da Nova Arquitetura (Projeto 2.0)
+5. Desenvolvimento
+6. Conclusão
+
 ## 🚀 1. Evolução da Arquitetura do Projeto: ETL com Python & PostgreSQL | Dataviz com Power BI
 Este documento detalha a evolução da arquitetura do projeto de Demonstração de Fluxo de Caixa (DFC), que migrou de uma abordagem de ETL (Extract, Transform, Load) simples e atrelada ao Power BI para uma solução robusta baseada em um Data Warehouse (DW) com Python e PostgreSQL. <br>
 
