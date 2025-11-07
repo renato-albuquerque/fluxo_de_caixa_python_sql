@@ -1,4 +1,5 @@
 # Projeto Demonstração de Fluxo de Caixa (DFC)
+![capa_projeto_fluxo_de_caixa](images/Fluxo-de-caixa.png)
 
 ## 📌 Sumário
 1. Evolução da Arquitetura do Projeto: ETL com Python & PostgreSQL | Dataviz com Power BI 
