@@ -107,10 +107,6 @@ O banco de dados foi nomeado de: `db_cash_flow.sql`.
 ![dim_calendario](images/dim_calendario.PNG)
 <br>
 
-**dim_calendario** <br>
-![dim_calendario](images/dim_calendario.PNG)
-<br>
-
 **f_saldo** <br>
 ![f_saldo](images/f_saldo.PNG)
 <br>
@@ -165,6 +161,16 @@ Ao migrar o processo de ETL para um pipeline dedicado em Python e centralizar o 
 <br>
 
 Este projeto demonstra a aplicação prática de conceitos modernos de engenharia de dados, convertendo dados brutos em uma Fonte Única da Verdade acionável e robusta para a tomada de decisões financeiras.
+
+[End]
+
+### Meus contatos
+- LinkedIn - [renato-malbuquerque](https://www.linkedin.com/in/renato-malbuquerque/)
+- GitHub - [renato-albuquerque](https://github.com/renato-albuquerque)
+- Discord - [Renato Albuquerque#0025](https://discordapp.com/users/992621595547938837)
+- Business Card - [Renato Albuquerque](https://rma-contacts.vercel.app/)
+
+
 
 
 
