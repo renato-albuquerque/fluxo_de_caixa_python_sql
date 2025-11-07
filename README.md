@@ -85,7 +85,7 @@ O banco de dados foi nomeado de: `db_cash_flow`.
 <br>
 <br>
 
-#### 6.2.3. Modelagem de dados do Data Warehouse
+#### 6.2.3. 🌟 Modelagem de dados do Data Warehouse
 ![modelagem_dados_dw](images/dw_star_schema_postgresql.PNG) 
 <br>
 <br>
@@ -115,13 +115,13 @@ O principal objetivo deste modelo é fornecer uma estrutura dimensionalmente cor
 - O modelo é intuitivo e fácil de entender. As tabelas de Dimensão filtram as tabelas de Fato. A lógica de negócio é clara para futuros desenvolvedores ou para o próprio usuário na navegação dos dados.
 <br>
 
-### 6.3. Desenvolvimento dos Dashboards (Dataviz)
+### 6.3. 📊 Desenvolvimento dos Dashboards (Dataviz)
 ![Página DFC](images/dashboard_pagina_dfc.PNG)
 <br>
 
 ![Página Matriz](images/dashboard_pagina_matriz.PNG)
 
-## 7. Conclusão
+## 7. 🏆 Conclusão
 A evolução para a Arquitetura 2.0 mostrou uma transformação na capacidade analítica do projeto de Demonstração de Fluxo de Caixa (DFC). <br>
 
 Ao migrar o processo de ETL para um pipeline dedicado em Python e centralizar o armazenamento em um PostgreSQL com Data Warehouse, o projeto alcançou seus objetivos primários:
