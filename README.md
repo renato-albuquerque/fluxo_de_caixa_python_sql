@@ -55,7 +55,7 @@ A introdução do Python e do PostgreSQL, estruturados em um *Data Warehouse* (D
 
 Em resumo, a versão 2.0 transformou o projeto de uma análise simples em uma solução de dados robusta, garantindo que as decisões financeiras sejam baseadas em dados de **alta qualidade, performance e governança**.
 
-## 5. Tecnologias/Ferramentas Utilizadas
+## 5. 💻 Tecnologias/Ferramentas Utilizadas
 - `Git & GitHub`: Controle de versionamento durante o desenvolvimento do projeto, em ambiente local ou em nuvem.
 - `Visual Studio Code`: Ambiente de desenvolvimento integrado. Software para execução do projeto (IDE: Integrated Development Environment).
 - `Python`: Linguagem de programação utilizada para construir o pipeline de ETL (Extração, Transformação e Carga) dos dados.
