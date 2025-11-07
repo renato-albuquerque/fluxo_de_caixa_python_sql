@@ -86,7 +86,7 @@ O banco de dados foi nomeado de: `db_cash_flow`.
 <br>
 
 #### 6.2.3. Modelagem de dados do Data Warehouse
-![modelagem_dados_dw](images/dw_star_schema.PNG) 
+![modelagem_dados_dw](images/dw_star_schema_postgresql.PNG) 
 <br>
 <br>
 
