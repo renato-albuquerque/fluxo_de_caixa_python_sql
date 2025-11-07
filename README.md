@@ -86,7 +86,7 @@ O banco de dados foi nomeado de: `db_cash_flow.sql`.
 <br>
 <br>
 
-#### 6.2.3. ✅ Resumo tabelas (DW) a serem carregadas no Power Bi
+#### 6.2.3. ✅ Resumo tabelas (DW) a serem carregadas no Power BI
 - dim_bancos;
 - dim_contas;
 - dim_calendario;
@@ -95,27 +95,27 @@ O banco de dados foi nomeado de: `db_cash_flow.sql`.
 <br>
 <br>
 
-**dim_bancos**
+**dim_bancos** <br>
 ![dim_bancos](images/dim_bancos.PNG)
 <br>
 
-**dim_contas**
+**dim_contas** <br>
 ![dim_contas](images/dim_contas.PNG)
 <br>
 
-**dim_calendario**
+**dim_calendario** <br>
 ![dim_calendario](images/dim_calendario.PNG)
 <br>
 
-**dim_calendario**
+**dim_calendario** <br>
 ![dim_calendario](images/dim_calendario.PNG)
 <br>
 
-**f_saldo**
+**f_saldo** <br>
 ![f_saldo](images/f_saldo.PNG)
 <br>
 
-**f_movimentos**
+**f_movimentos** <br>
 ![f_movimentos](images/f_movimentos.PNG)
 <br>
 
