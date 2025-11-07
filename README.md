@@ -77,7 +77,7 @@ Em resumo, a versão 2.0 transformou o projeto de uma análise simples em uma so
 ### ✅ 6.2. Etapas de criação do banco de dados no PostgreSQL até desenvolvimento das tabelas do Data Warehouse 
 
 #### ✅ 6.2.1. Criação do banco de dados no PostgreSQL
-O banco de dados foi nomeado de: `db_cash_flow`.
+O banco de dados foi nomeado de: `db_cash_flow.sql`.
 <br>
 <br>
 
@@ -86,7 +86,40 @@ O banco de dados foi nomeado de: `db_cash_flow`.
 <br>
 <br>
 
-#### 6.2.3. 🌟 Modelagem de dados do Data Warehouse
+#### 6.2.3. ✅ Resumo tabelas (DW) a serem carregadas no Power Bi
+- dim_bancos;
+- dim_contas;
+- dim_calendario;
+- f_saldo;
+- f_movimentos.
+<br>
+<br>
+
+**dim_bancos**
+![dim_bancos](images/dim_bancos.PNG)
+<br>
+
+**dim_contas**
+![dim_contas](images/dim_contas.PNG)
+<br>
+
+**dim_calendario**
+![dim_calendario](images/dim_calendario.PNG)
+<br>
+
+**dim_calendario**
+![dim_calendario](images/dim_calendario.PNG)
+<br>
+
+**f_saldo**
+![f_saldo](images/f_saldo.PNG)
+<br>
+
+**f_movimentos**
+![f_movimentos](images/f_movimentos.PNG)
+<br>
+
+#### 6.2.4. 🌟 Modelagem de dados do Data Warehouse
 ![modelagem_dados_dw](images/dw_star_schema_postgresql.PNG) 
 <br>
 <br>
