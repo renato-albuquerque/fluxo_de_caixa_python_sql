@@ -83,9 +83,12 @@ O banco de dados foi nomeado de: `db_cash_flow`.
 #### ✅ 6.2.2. Etapas de transformação e carga dos dados no PostgreSQL
 [Passo a passo descrito no arquivo db_cash_flow.](sql/db_cash_flow.sql).
 <br>
+<br>
 
 #### 6.2.3. Modelagem de dados do Data Warehouse
-![modelagem_dados_dw](images/dw_star_schema.PNG) <br>
+![modelagem_dados_dw](images/dw_star_schema.PNG) 
+<br>
+<br>
 
 ##### 🌟 Modelo de Dados: Esquema Estrela Otimizado para o projeto DFC
 
