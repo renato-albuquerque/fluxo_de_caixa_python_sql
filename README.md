@@ -161,10 +161,12 @@ Ao migrar o processo de ETL para um pipeline dedicado em Python e centralizar o 
 <br>
 
 Este projeto demonstra a aplicação prática de conceitos modernos de engenharia de dados, convertendo dados brutos em uma Fonte Única da Verdade acionável e robusta para a tomada de decisões financeiras.
+<br>
 
-[End]
+[End] 🎆
+<br>
 
-### Meus contatos
+### 👍 Meus contatos
 - LinkedIn - [renato-malbuquerque](https://www.linkedin.com/in/renato-malbuquerque/)
 - GitHub - [renato-albuquerque](https://github.com/renato-albuquerque)
 - Discord - [Renato Albuquerque#0025](https://discordapp.com/users/992621595547938837)
