@@ -68,17 +68,19 @@ Em resumo, a versão 2.0 transformou o projeto de uma análise simples em uma so
 
 ## 6. Desenvolvimento
 
-### 6.1. Etapas de Ingestão dos dados no Python até Carga dos dataframes no PostgreSQL
+### ✅ 6.1. Etapas de Ingestão dos dados no Python até Carga dos dataframes no PostgreSQL
 [Passo a passo descrito no arquivo main.ipynb.](jupyter/main.ipynb).
 <br>
-
-### 6.2. Etapas de criação do banco de dados no PostgreSQL até desenvolvimento das tabelas do Data Warehouse 
-
-#### 6.2.1. Criação do banco de dados no PostgreSQL
-O banco de dados foi nomeado de: `db_cash_flow`.
 <br>
 
-#### 6.2.2. Etapas de transformação e carga dos dados no PostgreSQL
+### ✅ 6.2. Etapas de criação do banco de dados no PostgreSQL até desenvolvimento das tabelas do Data Warehouse 
+
+#### ✅ 6.2.1. Criação do banco de dados no PostgreSQL
+O banco de dados foi nomeado de: `db_cash_flow`.
+<br>
+<br>
+
+#### ✅ 6.2.2. Etapas de transformação e carga dos dados no PostgreSQL
 [Passo a passo descrito no arquivo db_cash_flow.](sql/db_cash_flow.sql).
 <br>
 
@@ -92,6 +94,7 @@ O principal objetivo deste modelo é fornecer uma estrutura dimensionalmente cor
 - Calculem Saldo Final e Movimentações de forma precisa.
 - Analisem o Fluxo de Caixa por diversas dimensões: Tempo (Ano, Mês, Dia), Conta (Grupo/Subgrupo) e Banco.
 - Gerem Relatórios de Saldo Inicial/Final de maneira eficiente, separando os fatos de movimentação e saldo.
+<br>
 
 ##### ✨ Benefícios Chave Desta Modelagem (Esquema Estrela)
 1. Performance (Consultas Rápidas):
@@ -107,6 +110,7 @@ O principal objetivo deste modelo é fornecer uma estrutura dimensionalmente cor
 
 4. Clareza e Manutenibilidade:
 - O modelo é intuitivo e fácil de entender. As tabelas de Dimensão filtram as tabelas de Fato. A lógica de negócio é clara para futuros desenvolvedores ou para o próprio usuário na navegação dos dados.
+<br>
 
 ### 6.3. Desenvolvimento dos Dashboards (Dataviz)
 ![Página DFC](images/dashboard_pagina_dfc.PNG)
